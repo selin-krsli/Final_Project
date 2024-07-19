@@ -1,0 +1,12 @@
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\bin\Debug\net8.0\MovieApp.ENTITY.deps.json
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\bin\Debug\net8.0\MovieApp.ENTITY.dll
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\bin\Debug\net8.0\MovieApp.ENTITY.pdb
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\MovieApp.ENTITY.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\MovieApp.ENTITY.AssemblyInfoInputs.cache
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\MovieApp.ENTITY.AssemblyInfo.cs
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\MovieApp.ENTITY.csproj.CoreCompileInputs.cache
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\MovieApp.ENTITY.sourcelink.json
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\MovieApp.ENTITY.dll
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\refint\MovieApp.ENTITY.dll
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\MovieApp.ENTITY.pdb
+C:\Users\Monster\Documents\GitHub\Final_Project\MovieApp\MovieApp.ENTITY\obj\Debug\net8.0\ref\MovieApp.ENTITY.dll

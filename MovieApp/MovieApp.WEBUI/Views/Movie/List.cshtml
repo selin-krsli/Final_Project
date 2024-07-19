@@ -1,0 +1,24 @@
+﻿@model MovieViewModel
+@{
+    var popularClass = Model.Movies.Count>2?"popular":"";
+}
+@section Categories{
+    @await Component.InvokeAsync("Categories")
+}
+
+    @if (Model.Movies.Count == 0)
+    {
+        @await Html.PartialAsync("_noMovie")
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var movie in Model.Movies)
+            {
+                <div class="col-md-4">
+                    @await Html.PartialAsync("_movie", movie)
+                </div>
+            }
+        </div>
+
+    }

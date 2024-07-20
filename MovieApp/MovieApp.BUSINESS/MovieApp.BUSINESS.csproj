@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MovieApp.DATA\MovieApp.DATA.csproj" />
+    <ProjectReference Include="..\MovieApp.ENTITY\MovieApp.ENTITY.csproj" />
+  </ItemGroup>
+
 </Project>

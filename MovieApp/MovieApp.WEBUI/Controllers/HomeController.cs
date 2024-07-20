@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieApp.DATA.Abstract;
+using MovieApp.BUSINESS.Abstract;
 using MovieApp.WEBUI.ViewModels;
 
 namespace MovieApp.WEBUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IMovieRepository _movieRepository;
-        public HomeController(IMovieRepository movieRepository)
+        private readonly IMovieService _movieService;
+        public HomeController(IMovieService movieService)
         {
-            _movieRepository = movieRepository;
+            _movieService = movieService;
         }
         public IActionResult Index()
         {
             var movieViewModel = new MovieViewModel()
             {
-                Movies = _movieRepository.GetAll()
+                Movies = _movieService.GetAll()
             };
 
             return View(movieViewModel);

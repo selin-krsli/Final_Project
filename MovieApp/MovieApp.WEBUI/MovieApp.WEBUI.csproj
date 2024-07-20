@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MovieApp.BUSINESS\MovieApp.BUSINESS.csproj" />
     <ProjectReference Include="..\MovieApp.DATA\MovieApp.DATA.csproj" />
     <ProjectReference Include="..\MovieApp.ENTITY\MovieApp.ENTITY.csproj" />
   </ItemGroup>

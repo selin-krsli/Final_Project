@@ -43,4 +43,10 @@ bld/
 # Ignore directories and files specific to the MovieApp directory
 MovieApp/bin/
 MovieApp/obj/
-MovieApp.MovieApp.WEBUI/obj/
+MovieApp/MovieApp.WEBUI/obj/
+MovieApp/MovieApp.WEBUI/bin/
+MovieApp/MovieApp.DATA/obj/
+MovieApp/MovieApp.DATA/bin/
+MovieApp/MovieApp.ENTITY/obj/
+MovieApp/MovieApp.ENTITY/bin/
+

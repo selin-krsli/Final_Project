@@ -1,0 +1,46 @@
+# Ignore Visual Studio temporary files, build results, and
+# build directories
+*.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.ilk
+*.log
+*.lib
+*.ipr
+*.iws
+*.hprof
+*.orig
+*.swp
+*.o
+*.obj
+*.so
+*.a
+*.lo
+*.la
+*.lai
+*.suo
+*.ntvs_analysis.dat
+*.njsproj
+*.vcxproj
+*.vcxproj.filters
+
+# Ignore directories and files specific to the MovieApp directory
+MovieApp/.vs/
+MovieApp/bin/
+MovieApp/obj/

@@ -41,6 +41,6 @@ bld/
 *.vcxproj.filters
 
 # Ignore directories and files specific to the MovieApp directory
-MovieApp/.vs/
 MovieApp/bin/
 MovieApp/obj/
+MovieApp.MovieApp.WEBUI/obj/

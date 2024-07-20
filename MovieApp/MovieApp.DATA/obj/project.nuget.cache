@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "t5waV+AiKBg9IPoi5r1iF9ezDndns44gKSAEICr+c26lF4MGe9Mcp8pBUinAxCxl/oXgKhRArC7RplYlFLKoPQ==",
+  "dgSpecHash": "p+QLKiMaRKfVrBDWraauksTzBT7M2PNRKJbyRsh2Q+DIbXiVBj2VxVbySXo/SvMsLSOy00sRPOBvnWSKSxT1Rw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Monster\\Documents\\GitHub\\Final_Project\\MovieApp\\MovieApp.DATA\\MovieApp.DATA.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Monster\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.0\\microsoft.entityframeworkcore.relational.8.0.0.nupkg.sha512",
     "C:\\Users\\Monster\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\8.0.0\\microsoft.entityframeworkcore.sqlite.8.0.0.nupkg.sha512",
     "C:\\Users\\Monster\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\8.0.0\\microsoft.entityframeworkcore.sqlite.core.8.0.0.nupkg.sha512",
+    "C:\\Users\\Monster\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.0\\microsoft.entityframeworkcore.tools.8.0.0.nupkg.sha512",
     "C:\\Users\\Monster\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Monster\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
     "C:\\Users\\Monster\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",

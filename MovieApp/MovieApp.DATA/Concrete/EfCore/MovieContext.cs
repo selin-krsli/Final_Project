@@ -16,6 +16,13 @@ namespace MovieApp.DATA.Concrete.EfCore
         }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        //İki adet Key; tablonun birincil anahtarı.
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MovieCategory>()
+                .HasKey(k => new { k.CategoryId, k.MovieId });
+        }
     }
 }
 

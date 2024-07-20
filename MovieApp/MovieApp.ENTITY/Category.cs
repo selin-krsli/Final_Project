@@ -10,6 +10,6 @@ namespace MovieApp.ENTITY
     {
         public int CategoryId { get; set; }
         public string? Name { get; set; }
-        public List<MovieCategory> MovieCategories { get; set; }
+        public List<MovieCategory>? MovieCategories { get; set; }
     }
 }

@@ -7,7 +7,10 @@ namespace MovieApp.DATA.Concrete.EfCore
     {
         public List<Movie> GetPopularMovies()
         {
-            throw new NotImplementedException();
+            using(var context = new MovieContext())
+            {
+                return context.Movies.ToList();
+            }
         }
 
         public List<Movie> GetTop5Movies()

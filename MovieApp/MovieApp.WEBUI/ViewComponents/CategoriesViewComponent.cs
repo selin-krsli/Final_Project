@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieApp.WEBUI.Data;
-using MovieApp.WEBUI.Models;
+
 
 namespace MovieApp.WEBUI.ViewComponents
 {
@@ -9,7 +8,7 @@ namespace MovieApp.WEBUI.ViewComponents
         public IViewComponentResult Invoke()
         {
 
-            return View(CategoryRepository.Categories);
+            return View(/*CategoryRepository.Categories*/);
         }
     }
 }

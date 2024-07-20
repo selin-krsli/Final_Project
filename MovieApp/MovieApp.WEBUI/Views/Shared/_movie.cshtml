@@ -2,8 +2,8 @@
 <div class="card mb-2">
     <img class="card-img-top" src="~/img/@Model.Image" alt="" />
     <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
-        <p class="card-text">@Model.Description</p>
+        <h5 class="card-title">@Model.MovieName</h5>
+        <p class="card-text">@Model.MovieStory</p>
         <a asp-controller="Movie" asp-action="Details" asp-route-id="@Model.MovieId" class="btn btn-primary btn-sm">İncele</a>
         <a asp-controller="Movie" asp-action="Edit" asp-route-id="@Model.MovieId" class="btn btn-primary btn-sm">Güncelle</a>
 

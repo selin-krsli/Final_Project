@@ -1,6 +1,12 @@
+using MovieApp.DATA.Abstract;
+using MovieApp.DATA.Concrete.EfCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IMovieRepository, EfCoreMovieRepository>();
+builder.Services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();

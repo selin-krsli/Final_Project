@@ -2,7 +2,7 @@
 
 namespace MovieApp.WEBUI.ViewModels
 {
-    public class MovieViewModel
+    public class MovieListViewModel
     {
         public List<Movie> Movies { get; set; }
     }

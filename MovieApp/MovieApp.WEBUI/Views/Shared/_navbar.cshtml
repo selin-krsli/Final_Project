@@ -1,14 +1,21 @@
 ﻿<div class="navbar bg-dark navbar-dark navbar-expand-sm">
     <div class="container">
-        <ul class="navbar-nav">
+        <a href="/" class="navbar-brand">MovieApp</a>
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a asp-controller="Movie" asp-action="List" class="nav-link">Movies</a>
             </li>
             <li class="nav-item">
-                <a asp-controller="Movie" asp-action="Create" class="nav-link">Add Movie</a>
+                <a asp-controller="" asp-action="" class="nav-link">Card</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Link 3</a>
+                <a asp-controller="" asp-action="" class="nav-link">Orders</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Admin" asp-action="CreateMovie" class="nav-link">Add Movie</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Admin" asp-action="MovieList" class="nav-link">Admin Movies</a>
             </li>
         </ul>
         <form action="/movie/list" class="form-inline">

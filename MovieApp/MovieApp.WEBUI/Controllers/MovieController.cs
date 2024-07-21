@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MovieApp.BUSINESS.Abstract;
 using MovieApp.ENTITY;
 using MovieApp.WEBUI.ViewModels;
 
@@ -7,33 +8,35 @@ namespace MovieApp.WEBUI.Controllers
 {
     public class MovieController : Controller
     {
-        public IActionResult Index()
+        private readonly IMovieService _movieService;
+        public MovieController(IMovieService movieService)
         {
-            var movie = new Movie { MovieName = "Iphone X", Price= 5000, MovieStory = "Mükoo"};
-
-            return View(movie);
+            _movieService = movieService;
         }
-        //id null ise; /movie/list --> Tüm filmleri listele
-        //id null değilse; /movie/list/2 --> 2 numaralı kategoride var olan filmleri listele.
-        public IActionResult List(int? id, string searchString)
+        public IActionResult List()
         {
-            //var movies = MovieRepository.Movies;
-
-            //if(id != null)
-            //{
-            //    movies = movies.Where(m=>m.CategoryId == id).ToList();
-            //}
-            //if(!string.IsNullOrEmpty(searchString))
-            //{
-            //    movies = movies.Where(s=>s.Name.ToLower().Contains(searchString.ToLower())).ToList();
-            //}
-            //var movieViewModel = new MovieViewModel { Movies = movies };
-            
-            return View();
+            var movieListViewModel = new MovieListViewModel
+            {
+                Movies = _movieService.GetAll()
+            };
+            return View(movieListViewModel);
         }
-        public IActionResult Details(int id)
+        public IActionResult Details(int? id)
         {
-            return View(/*MovieRepository.GetMovieById(id)*/);  
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var movie = _movieService.GetMovieWithCategories((int)id);
+            if(movie == null)
+            {
+                return NotFound();
+            }
+            return View(new MovieCategoryViewModel
+            {
+                Movie = movie,
+                Categories = movie.MovieCategories.Select(s=>s.Category).ToList()
+            });  
         }
         [HttpGet]
         public IActionResult Create()

@@ -1,17 +1,8 @@
-﻿@model MovieViewModel
-@{
-    var popularClass = Model.Movies.Count>2?"popular":"";
-}
-@section Categories{
-    @await Component.InvokeAsync("Categories")
-}
+﻿@model MovieListViewModel
 
-    @if (Model.Movies.Count == 0)
-    {
-        @await Html.PartialAsync("_noMovie")
-    }
-    else
-    {
+    <div class="row">
+        <div class="col-md-3">@await Component.InvokeAsync("Categories")</div>
+        <div class="col-md-9">
         <div class="row">
             @foreach (var movie in Model.Movies)
             {
@@ -20,5 +11,12 @@
                 </div>
             }
         </div>
+        </div>
+    </div>
 
-    }
+@section Scripts
+    {
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+}
+

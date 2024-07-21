@@ -11,7 +11,7 @@ builder.Services.AddScoped<IMovieRepository, EfCoreMovieRepository>();
 builder.Services.AddScoped<IMovieService, MovieManager>();
 
 builder.Services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
-//builder.Services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();

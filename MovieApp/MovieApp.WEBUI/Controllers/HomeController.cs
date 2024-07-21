@@ -13,7 +13,7 @@ namespace MovieApp.WEBUI.Controllers
         }
         public IActionResult Index()
         {
-            var movieViewModel = new MovieViewModel()
+            var movieViewModel = new MovieListViewModel()
             {
                 Movies = _movieService.GetAll()
             };

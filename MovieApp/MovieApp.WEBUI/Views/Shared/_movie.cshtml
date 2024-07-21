@@ -3,13 +3,12 @@
     <img class="card-img-top" src="~/img/@Model.Image" alt="" />
     <div class="card-body">
         <h5 class="card-title">@Model.MovieName</h5>
-        <p class="card-text">@Model.MovieStory</p>
-        <a asp-controller="Movie" asp-action="Details" asp-route-id="@Model.MovieId" class="btn btn-primary btn-sm">İncele</a>
-        <a asp-controller="Movie" asp-action="Edit" asp-route-id="@Model.MovieId" class="btn btn-primary btn-sm">Güncelle</a>
-
-        <form asp-controller="Movie" asp-action="Delete" method="post" style="display: inline;">
-            <input type="hidden" name="id" value="@Model.MovieId" />
-            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-        </form>
+        <small class="text-muted">
+            <i class="fas fa-lira-sign"></i>@Model.Price
+        </small>      
+    </div>
+    <div class="card-footer text-center">
+        <a asp-controller="Movie" asp-action="Details" asp-route-id="@Model.MovieId" class="btn btn-primary btn-sm">Details</a>
+        <a asp-controller="Movie" asp-action="AddToCard" asp-route-id="@Model.MovieId" class="btn btn-primary btn-sm">Add To Card</a>
     </div>
 </div>

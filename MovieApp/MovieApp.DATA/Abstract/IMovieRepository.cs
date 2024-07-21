@@ -6,5 +6,6 @@ namespace MovieApp.DATA.Abstract
     {
         List<Movie> GetPopularMovies();
         List<Movie> GetTop5Movies();
+        Movie GetMovieWithCategories(int id);//movie info & which category
     }
 }

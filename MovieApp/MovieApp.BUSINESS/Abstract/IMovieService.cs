@@ -14,6 +14,7 @@ namespace MovieApp.BUSINESS.Abstract
         void Create(Movie entity);
         void Update(Movie entity);
         void Delete(Movie entity);
-        Movie GetMovieWithCategories(int id);
+        Movie GetMovieDetails(string url);
+        List<Movie> GetMovieWithCategories(string categoryName);
     }
 }

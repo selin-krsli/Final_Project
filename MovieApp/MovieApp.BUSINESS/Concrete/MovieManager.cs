@@ -31,9 +31,14 @@ namespace MovieApp.BUSINESS.Concrete
             return _movieRepository.GetById(id);
         }
 
-        public Movie GetMovieWithCategories(int id)
+        public Movie GetMovieDetails(string url)
         {
-           return _movieRepository.GetMovieWithCategories(id);
+           return _movieRepository.GetMovieDetails(url);
+        }
+
+        public List<Movie> GetMovieWithCategories(string categoryName)
+        {
+            return _movieRepository.GetMovieWithCategories(categoryName);
         }
 
         public void Update(Movie entity)

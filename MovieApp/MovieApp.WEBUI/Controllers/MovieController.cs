@@ -13,21 +13,21 @@ namespace MovieApp.WEBUI.Controllers
         {
             _movieService = movieService;
         }
-        public IActionResult List()
+        public IActionResult List(string category)
         {
             var movieListViewModel = new MovieListViewModel
             {
-                Movies = _movieService.GetAll()
+                Movies = _movieService.GetMovieWithCategories(category)
             };
             return View(movieListViewModel);
         }
-        public IActionResult Details(int? id)
+        public IActionResult Details(string url)
         {
-            if(id == null)
+            if(url == null)
             {
                 return NotFound();
             }
-            var movie = _movieService.GetMovieWithCategories((int)id);
+            var movie = _movieService.GetMovieDetails(url);
             if(movie == null)
             {
                 return NotFound();

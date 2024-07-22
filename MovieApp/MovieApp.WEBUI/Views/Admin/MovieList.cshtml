@@ -1,0 +1,65 @@
+﻿@model MovieListViewModel
+<div class="row">
+    <div class="col-md-12">
+        <h1>Admin Movies</h1>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:30px;">Id</th>
+                    <th style="width:100px;">Image</th>
+                    <th>Name</th>
+                    <th style="width:20px;">Price</th>
+                    <th style="width:20px;">IsHome</th>
+                    <th style="width:20px;">IsApproved</th>
+                    <th style="width:180px;">Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.Movies.Count>0)
+                {
+                    @foreach (var item in Model.Movies)
+                    {
+                        <tr>
+                            <td>@item.MovieId</td>
+                            <td><img src="~/img/@item.Image" width="150px;"></td>
+                            <td>@item.MovieName</td>
+                            <td>@item.Price</td>
+                            <td>
+                                @if (@item.IsHome)
+                                {
+                                    <i class="fas fa-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle"></i>
+                                }
+                            </td>
+                            <td>
+                                @if (@item.IsApproved)
+                                {
+                                    <i class="fas fa-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle"></i>
+                                }
+                            </td>
+                            <td>
+                                <a asp-controller="Admin" asp-action="EditMovie" asp-route-id="@item.MovieId" class="btn btn-primary  mr-2">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>There is no movie!</h3>
+                    </div>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

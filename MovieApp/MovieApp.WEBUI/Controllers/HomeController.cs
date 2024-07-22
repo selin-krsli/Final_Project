@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieApp.BUSINESS.Abstract;
-using MovieApp.WEBUI.ViewModels;
+using MovieApp.WEBUI.Models;
 
 namespace MovieApp.WEBUI.Controllers
 {

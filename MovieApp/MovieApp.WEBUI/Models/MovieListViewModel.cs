@@ -1,6 +1,6 @@
 ﻿using MovieApp.ENTITY;
 
-namespace MovieApp.WEBUI.ViewModels
+namespace MovieApp.WEBUI.Models
 {
     public class PageInfo
     {
@@ -8,7 +8,7 @@ namespace MovieApp.WEBUI.ViewModels
         public int ItemsPerPage { get; set; }
         public int CurrentPageIndex { get; set; }
         public string? CurrentCategory { get; set; }
-        public int TotalPages() {  return (int)Math.Ceiling((decimal)TotalItems/ItemsPerPage); }
+        public int TotalPages() { return (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage); }
     }
     public class MovieListViewModel
     {

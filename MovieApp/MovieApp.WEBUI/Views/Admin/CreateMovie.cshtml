@@ -1,0 +1,44 @@
+﻿@model MovieModel
+
+<h3>Create Movie</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Admin" asp-action="CreateMovie" method="post">
+            <div class="mb-3">
+                <label asp-for="MovieName" class="form-label"></label>
+                <input asp-for="MovieName" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Url" class="form-label"></label>
+                <input asp-for="Url" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="MovieStory" class="form-label"></label>
+                <textarea asp-for="MovieStory" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Genre" class="form-label"></label>
+                <input asp-for="Genre" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Director" class="form-label"></label>
+                <input asp-for="Director" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Image" class="form-label"></label>
+                <input asp-for="Image" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <div class="">
+                <button type="submit" class="btn btn-success">Create Movie</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>

@@ -25,6 +25,18 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
+//app.MapControllerRoute(
+//    name: "adminmovielist",
+//    pattern: "admin/movies/{id?}",
+//    defaults: new { controller = "Admin", action = "EditMovie" }
+//    );
+
+app.MapControllerRoute(
+    name: "adminmovielist",
+    pattern: "admin/movies",
+    defaults: new {controller = "Admin", action="MovieList"}
+    );
+
 app.MapControllerRoute
     (
       name: "search",

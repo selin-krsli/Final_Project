@@ -1,6 +1,6 @@
 ﻿using MovieApp.ENTITY;
 
-namespace MovieApp.WEBUI.ViewModels
+namespace MovieApp.WEBUI.Models
 {
     public class MovieCategoryViewModel
     {

@@ -1,10 +1,7 @@
 ﻿@model MovieListViewModel
 
 <div class="row">
-    <div class="col-md-3">
-        @await Component.InvokeAsync("Categories")
-        @await Html.PartialAsync("_search")
-    </div>
+    <div class="col-md-3">@await Component.InvokeAsync("Categories")</div>
     <div class="col-md-9">
         <div class="row">
             @foreach (var movie in Model.Movies)

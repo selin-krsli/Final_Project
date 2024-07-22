@@ -31,14 +31,29 @@ namespace MovieApp.BUSINESS.Concrete
             return _movieRepository.GetById(id);
         }
 
+        public List<Movie> GetHomePageMovies()
+        {
+            return _movieRepository.GetHomePageMovies();
+        }
+
+        public int GetMovieByCategory(string category)
+        {
+            return _movieRepository.GetMovieByCategory(category);
+        }
+
         public Movie GetMovieDetails(string url)
         {
            return _movieRepository.GetMovieDetails(url);
         }
 
-        public List<Movie> GetMovieWithCategories(string categoryName)
+        public List<Movie> GetMovieWithCategories(string categoryName,int page,int pageSize)
         {
-            return _movieRepository.GetMovieWithCategories(categoryName);
+            return _movieRepository.GetMovieWithCategories(categoryName,page,pageSize);
+        }
+
+        public List<Movie> GetSearchResult(string searchingWord)
+        {
+            return _movieRepository.GetSearchResult(searchingWord);
         }
 
         public void Update(Movie entity)

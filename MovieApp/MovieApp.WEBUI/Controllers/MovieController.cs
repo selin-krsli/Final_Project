@@ -13,11 +13,19 @@ namespace MovieApp.WEBUI.Controllers
         {
             _movieService = movieService;
         }
-        public IActionResult List(string category)
+        public IActionResult List(string category, int page=1)
         {
+            const int pageSize = 6;
             var movieListViewModel = new MovieListViewModel
             {
-                Movies = _movieService.GetMovieWithCategories(category)
+                PageInfo = new PageInfo
+                {
+                    TotalItems = _movieService.GetMovieByCategory(category),
+                    CurrentPageIndex = page,
+                    ItemsPerPage = pageSize,
+                    CurrentCategory = category
+                },
+                Movies = _movieService.GetMovieWithCategories(category,page, pageSize)
             };
             return View(movieListViewModel);
         }
@@ -42,17 +50,11 @@ namespace MovieApp.WEBUI.Controllers
         public IActionResult Create()
         {
             //ViewBag.Categories = new SelectList(CategoryRepository.Categories, "CategoryId", "Name");
-            return View(/*new Movie()*/);
+            return View();
         }
         [HttpPost]
         public IActionResult Create(Movie model)
         {
-            //if(ModelState.IsValid)
-            //{
-            //    MovieRepository.AddMovie(model);
-            //    return RedirectToAction("List");
-            //}
-            //ViewBag.Categories = new SelectList(CategoryRepository.Categories, "CategoryId", "Name");
             return View();
 
         }
@@ -60,7 +62,7 @@ namespace MovieApp.WEBUI.Controllers
         public IActionResult Edit(int id)
         {
             //ViewBag.Categories = new SelectList(CategoryRepository.Categories, "CategoryId", "Name");
-            return View(/*MovieRepository.GetMovieById(id)*/);
+            return View();
         }
         [HttpPost]
         public IActionResult Edit(Movie model)
@@ -73,6 +75,14 @@ namespace MovieApp.WEBUI.Controllers
         {
             //MovieRepository.DeleteMovie(id);
             return RedirectToAction("List");
+        }
+        public IActionResult Search(string searchingWord)
+        {
+            var movieListViewModel = new MovieListViewModel
+            {
+                Movies = _movieService.GetSearchResult(searchingWord)
+            };
+            return View(movieListViewModel);
         }
     }
 }

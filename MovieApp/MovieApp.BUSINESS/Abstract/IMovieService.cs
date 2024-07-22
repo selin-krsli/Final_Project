@@ -15,6 +15,9 @@ namespace MovieApp.BUSINESS.Abstract
         void Update(Movie entity);
         void Delete(Movie entity);
         Movie GetMovieDetails(string url);
-        List<Movie> GetMovieWithCategories(string categoryName);
+        List<Movie> GetMovieWithCategories(string categoryName,int page,int pageSize);
+        int GetMovieByCategory(string category);
+        List<Movie> GetHomePageMovies();
+        List<Movie> GetSearchResult(string searchingWord);
     }
 }

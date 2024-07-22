@@ -15,7 +15,7 @@ namespace MovieApp.WEBUI.Controllers
         {
             var movieViewModel = new MovieListViewModel()
             {
-                Movies = _movieService.GetAll()
+                Movies = _movieService.GetHomePageMovies()
             };
 
             return View(movieViewModel);

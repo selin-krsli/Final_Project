@@ -25,6 +25,13 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
+app.MapControllerRoute
+    (
+      name: "search",
+      pattern: "search",
+      defaults: new { controller="Movie", action="Search"}
+    );
+
 //app.MapControllerRoute(
 //    name: "moviedetails",
 //    pattern: "{url}",

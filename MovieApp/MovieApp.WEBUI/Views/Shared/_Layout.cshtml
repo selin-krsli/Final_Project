@@ -13,6 +13,18 @@
 
     <main class="my-3">
         <div class="container">
+            @if (TempData["message"] != null)
+            {
+                @*  gelen mesaj ve class bilgisine göre tempdatayı kullandım. *@
+                var alertMessageBox = JsonConvert.DeserializeObject<MessageBoxInfo>(TempData["message"] as String);
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@alertMessageBox.AlertType">
+                            @alertMessageBox.Message
+                        </div>
+                    </div>
+                </div>
+            }
             @RenderBody()
          </div>
     </main>

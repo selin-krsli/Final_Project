@@ -1,6 +1,16 @@
 ﻿@model MovieModel
-
-<h3>Create Movie</h3>
+@* @if (TempData["message"] != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                @TempData["message"]
+            </div>
+        </div>
+    </div>
+}
+ *@
+<h3>Edit Movie</h3>
 <hr />
 
 <div class="row">
@@ -36,7 +46,7 @@
                 <input asp-for="Price" class="form-control" />
             </div>
             <div class="">
-                <button type="submit" class="btn btn-success">Create Movie</button>
+                <button type="submit" class="btn btn-success">Edit Movie</button>
             </div>
 
         </form>

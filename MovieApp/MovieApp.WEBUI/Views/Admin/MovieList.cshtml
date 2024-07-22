@@ -1,4 +1,16 @@
 ﻿@model MovieListViewModel
+
+@* @if (TempData["message"] != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                @TempData["message"]
+            </div>
+        </div>
+    </div>
+} *@
+
 <div class="row">
     <div class="col-md-12">
         <h1>Admin Movies</h1>
@@ -21,7 +33,7 @@
                     @foreach (var item in Model.Movies)
                     {
                         <tr>
-                            <td>@item.MovieId</td>
+                            <th>@item.MovieId</th>
                             <td><img src="~/img/@item.Image" width="150px;"></td>
                             <td>@item.MovieName</td>
                             <td>@item.Price</td>
@@ -47,7 +59,10 @@
                             </td>
                             <td>
                                 <a asp-controller="Admin" asp-action="EditMovie" asp-route-id="@item.MovieId" class="btn btn-primary  mr-2">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <form asp-controller="Admin" asp-action="DeleteMovie" method="post" style="display: inline-block;">
+                                    <input type="hidden" name="movieId" value=" @item.MovieId">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     }

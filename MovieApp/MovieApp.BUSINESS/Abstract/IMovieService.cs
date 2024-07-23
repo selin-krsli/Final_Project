@@ -13,11 +13,13 @@ namespace MovieApp.BUSINESS.Abstract
         List<Movie> GetAll();
         void Create(Movie entity);
         void Update(Movie entity);
+        void Update(Movie entity, int[] categoryIds);
         void Delete(Movie entity);
         Movie GetMovieDetails(string url);
         List<Movie> GetMovieWithCategories(string categoryName,int page,int pageSize);
         int GetMovieByCategory(string category);
         List<Movie> GetHomePageMovies();
         List<Movie> GetSearchResult(string searchingWord);
+        Movie GetByIdWithCategories(int id);
     }
 }

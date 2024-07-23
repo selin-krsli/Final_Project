@@ -9,5 +9,6 @@ namespace MovieApp.BUSINESS.Abstract
         void Create(Category entity);
         void Update(Category entity);
         void Delete(Category entity);
+        Category GetByIdWithMovies(int categoryId);
     }
 }

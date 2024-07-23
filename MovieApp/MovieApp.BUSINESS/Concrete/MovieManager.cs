@@ -31,6 +31,11 @@ namespace MovieApp.BUSINESS.Concrete
             return _movieRepository.GetById(id);
         }
 
+        public Movie GetByIdWithCategories(int id)
+        {
+            return _movieRepository.GetByIdWithCategories(id);  
+        }
+
         public List<Movie> GetHomePageMovies()
         {
             return _movieRepository.GetHomePageMovies();
@@ -59,6 +64,11 @@ namespace MovieApp.BUSINESS.Concrete
         public void Update(Movie entity)
         {
             _movieRepository.Update(entity);
+        }
+
+        public void Update(Movie entity, int[] categoryIds)
+        {
+            _movieRepository.Update(entity, categoryIds);
         }
     }
 }

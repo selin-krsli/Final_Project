@@ -25,16 +25,36 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "adminmovielist",
-//    pattern: "admin/movies/{id?}",
-//    defaults: new { controller = "Admin", action = "EditMovie" }
-//    );
 
 app.MapControllerRoute(
-    name: "adminmovielist",
+    name: "adminmovies",
     pattern: "admin/movies",
     defaults: new {controller = "Admin", action="MovieList"}
+    );
+app.MapControllerRoute(
+    name: "adminmoviecreate",
+    pattern: "admin/movies/create",
+    defaults: new { controller = "Admin", action = "CreateMovie" }
+    );
+app.MapControllerRoute(
+    name: "adminmovieedit",
+    pattern: "admin/movies/{id?}",
+    defaults: new { controller = "Admin", action = "EditMovie" }
+    );
+app.MapControllerRoute(
+    name: "admincategories",
+    pattern: "admin/categories",
+    defaults: new { controller = "Admin", action = "CategoryList" }
+    );
+app.MapControllerRoute(
+    name: "admincategorycreate",
+    pattern: "admin/categories/create",
+    defaults: new { controller = "Admin", action = "CreateCategory" }
+    );
+app.MapControllerRoute(
+    name: "admincategoryedit",
+    pattern: "admin/categories/{id?}",
+    defaults: new { controller = "Admin", action = "EditCategory" }
     );
 
 app.MapControllerRoute

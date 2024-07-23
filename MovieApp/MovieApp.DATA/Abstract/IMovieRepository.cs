@@ -9,5 +9,7 @@ namespace MovieApp.DATA.Abstract
         Movie GetMovieDetails(string url);
         int GetMovieByCategory(string category);
         List<Movie> GetHomePageMovies();
+        Movie GetByIdWithCategories(int id);
+        void Update(Movie entity, int[] categoryIds);
     }
 }

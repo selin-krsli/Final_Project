@@ -9,6 +9,6 @@ namespace MovieApp.DATA.Abstract
 {
     public interface ICategoryRepository: IRepository<Category>
     {
-        List<Category> GetPopularCategories();
+        Category GetByIdWithMovies(int categoryId);
     }
 }

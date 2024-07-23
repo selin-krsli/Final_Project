@@ -3,9 +3,9 @@
 <h3>Edit Movie</h3>
 <hr />
 
+<form asp-controller="Admin" asp-action="EditMovie" method="post">
 <div class="row">
     <div class="col-md-8">
-        <form asp-controller="Admin" asp-action="EditMovie" method="post">
             <input type="hidden" asp-for="MovieId"/>
             <div class="mb-3">
                 <label asp-for="MovieName" class="form-label"></label>
@@ -38,8 +38,20 @@
             <div class="">
                 <button type="submit" class="btn btn-success">Edit Movie</button>
             </div>
-
-        </form>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        @foreach (var item in (List<Category>)ViewBag.Categories)
+            {
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" 
+                    name="categoryIds"
+                    value="@item.CategoryId"
+                    id="category_@(item.CategoryId)" 
+                    @(Model.SelectedCategories.Any(c=>c.CategoryId==item.CategoryId)?"checked":"")/>
+                <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
+                </div>
+            }
+    </div>
 </div>
+
+</form>

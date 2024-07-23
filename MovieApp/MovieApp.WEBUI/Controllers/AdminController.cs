@@ -31,26 +31,30 @@ namespace MovieApp.WEBUI.Controllers
         [HttpPost]
         public IActionResult CreateMovie(MovieModel model)
         {
-            var movieEntity = new Movie
-            {
-                MovieName = model.MovieName,
-                Url = model.Url,
-                MovieStory = model.MovieStory,
-                Genre = model.Genre,
-                Director = model.Director,
-                Image = model.Image,
-                Price = model.Price,
-            };
-            _movieService.Create(movieEntity);
+            //if(ModelState.IsValid)
+            //{
+                var movieEntity = new Movie
+                {
+                    MovieName = model.MovieName,
+                    Url = model.Url,
+                    MovieStory = model.MovieStory,
+                    Genre = model.Genre,
+                    Director = model.Director,
+                    Image = model.Image,
+                    Price = model.Price ?? 0,
+                };
+                _movieService.Create(movieEntity);
 
-            var serializeObj = new MessageBoxInfo
-            {
-                Message = $"{movieEntity.MovieName} is added!",
-                AlertType = "success"
-            };
+                var serializeObj = new MessageBoxInfo
+                {
+                    Message = $"{movieEntity.MovieName} is added!",
+                    AlertType = "success"
+                };
 
-            TempData["message"] = JsonConvert.SerializeObject(serializeObj);
-            return RedirectToAction("MovieList");
+                TempData["message"] = JsonConvert.SerializeObject(serializeObj);
+                return RedirectToAction("MovieList");
+            //}
+            //return View(model);
         }
         public IActionResult EditMovie(int? id)
         {
@@ -85,29 +89,34 @@ namespace MovieApp.WEBUI.Controllers
         [HttpPost]
         public IActionResult EditMovie(MovieModel model, int[] categoryIds)
         {
-            var movieEntity = _movieService.GetById(model.MovieId);
-            if(movieEntity == null)
+            if(ModelState.IsValid)
             {
-                return NotFound();
+                var movieEntity = _movieService.GetById(model.MovieId);
+                if (movieEntity == null)
+                {
+                    return NotFound();
+                }
+                movieEntity.MovieName = model.MovieName;
+                movieEntity.Url = model.Url;
+                movieEntity.Price = model.Price ?? 0;
+                movieEntity.MovieStory = model.MovieStory;
+                movieEntity.Genre = model.Genre;
+                movieEntity.Director = model.Director;
+                movieEntity.Image = model.Image;
+
+                _movieService.Update(movieEntity, categoryIds);
+
+                var serializeObj = new MessageBoxInfo
+                {
+                    Message = $"{movieEntity.MovieName} is updated!",
+                    AlertType = "warning"
+                };
+
+                TempData["message"] = JsonConvert.SerializeObject(serializeObj);
+                return RedirectToAction("MovieList");
             }
-            movieEntity.MovieName = model.MovieName;
-            movieEntity.Url = model.Url;
-            movieEntity.Price = model.Price;
-            movieEntity.MovieStory = model.MovieStory;
-            movieEntity.Genre = model.Genre;
-            movieEntity.Director = model.Director;
-            movieEntity.Image = model.Image;
-
-            _movieService.Update(movieEntity, categoryIds);
-
-            var serializeObj  = new MessageBoxInfo
-            {
-                Message = $"{movieEntity.MovieName} is updated!",
-                AlertType = "warning"
-            };
-
-            TempData["message"] = JsonConvert.SerializeObject(serializeObj);
-            return RedirectToAction("MovieList");
+            ViewBag.Categories = _categoryService.GetAll();
+            return View(model);
         }
         [HttpPost]
         public IActionResult DeleteMovie(int movieId)

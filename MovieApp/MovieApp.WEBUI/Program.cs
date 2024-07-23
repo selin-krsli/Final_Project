@@ -1,11 +1,17 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using MovieApp.BUSINESS.Abstract;
 using MovieApp.BUSINESS.Concrete;
 using MovieApp.DATA.Abstract;
 using MovieApp.DATA.Concrete.EfCore;
+using MovieApp.WEBUI.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlite("Data Source=MovieDb"));
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IMovieRepository, EfCoreMovieRepository>();
 builder.Services.AddScoped<IMovieService, MovieManager>();
@@ -22,6 +28,7 @@ if(app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 app.UseStaticFiles();
+app.UseAuthentication();
 app.UseRouting();
 app.UseAuthorization();
 

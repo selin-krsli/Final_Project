@@ -76,11 +76,11 @@ namespace MovieApp.WEBUI.Controllers
             //MovieRepository.DeleteMovie(id);
             return RedirectToAction("List");
         }
-        public IActionResult Search(string searchingWord)
+        public IActionResult Search(string searchString)
         {
             var movieListViewModel = new MovieListViewModel
             {
-                Movies = _movieService.GetSearchResult(searchingWord)
+                Movies = _movieService.GetSearchResult(searchString)
             };
             return View(movieListViewModel);
         }

@@ -1,11 +1,14 @@
 ﻿@model Movie
 
+<h3>Create Movie</h3>
+<hr />
+
 <form asp-controller="Movie" asp-action="Create" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <div class="mb-3">
             <label asp-for="MovieName" class="form-label">MovieName</label>
-            <input asp-for="MovieName" name="@Model.MovieName" class="form-control" />
+            <input asp-for="MovieName" class="form-control" />
             <span asp-validation-for="MovieName" class="text-danger"></span>
         </div>
         <div class="mb-3">

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MovieApp.BUSINESS.Abstract;
 using MovieApp.ENTITY;
 using MovieApp.WEBUI.Models;
@@ -6,6 +7,7 @@ using Newtonsoft.Json;
 
 namespace MovieApp.WEBUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly IMovieService _movieService;
@@ -89,8 +91,8 @@ namespace MovieApp.WEBUI.Controllers
         [HttpPost]
         public IActionResult EditMovie(MovieModel model, int[] categoryIds)
         {
-            if(ModelState.IsValid)
-            {
+            //if(ModelState.IsValid)
+            //{
                 var movieEntity = _movieService.GetById(model.MovieId);
                 if (movieEntity == null)
                 {
@@ -114,9 +116,9 @@ namespace MovieApp.WEBUI.Controllers
 
                 TempData["message"] = JsonConvert.SerializeObject(serializeObj);
                 return RedirectToAction("MovieList");
-            }
-            ViewBag.Categories = _categoryService.GetAll();
-            return View(model);
+            //}
+            //ViewBag.Categories = _categoryService.GetAll();
+            //return View(model);
         }
         [HttpPost]
         public IActionResult DeleteMovie(int movieId)

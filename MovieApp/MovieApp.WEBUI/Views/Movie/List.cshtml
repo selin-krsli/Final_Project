@@ -19,11 +19,11 @@
                         {
                             @if (String.IsNullOrEmpty(Model.PageInfo.CurrentCategory))
                             {
-                                <li class="page-item @(Model.PageInfo.CurrentPageIndex==i+1?"active":"")"><a class="page-link" href="/movies?page=@(i+1)">@(i + 1)</a></li>
+                                <li class="page-item @(Model.PageInfo.CurrentPageIndex==i+1?"active":"")"><a class="page-link" href="/movie/list?page=@(i+1)">@(i + 1)</a></li>
                             }
                             else
                             {
-                                <li class="page-item @(Model.PageInfo.CurrentPageIndex==i+1?"active":"")"><a class="page-link" href="/movies/@Model.PageInfo.CurrentCategory?page=@(i+1)">@(i + 1)</a></li>
+                                <li class="page-item @(Model.PageInfo.CurrentPageIndex==i+1?"active":"")"><a class="page-link" href="/movie/list@Model.PageInfo.CurrentCategory?page=@(i+1)">@(i + 1)</a></li>
                             }
 
                         }                           

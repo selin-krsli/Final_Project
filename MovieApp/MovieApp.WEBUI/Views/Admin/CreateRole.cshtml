@@ -1,0 +1,21 @@
+﻿@model RoleModel
+
+<h3>Create Role</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="Admin" asp-action="CreateRole" method="post">
+            <div asp-asp-validation-summary="All" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="">
+                <button type="submit" class="btn btn-success">Create Role</button>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -14,13 +14,9 @@ namespace MovieApp.WEBUI.Controllers
             _userManager = userManager;   
             _signInManager = signInManager;
         }
-        public IActionResult Login(/*string ReturnUrl=null*/)
+        public IActionResult Login()
         {
             return View();
-            //return View(new LoginModel
-            //{
-            //    ReturnUrl = ReturnUrl,
-            //});
         }
 
         [HttpPost]
@@ -42,7 +38,6 @@ namespace MovieApp.WEBUI.Controllers
             if(result.Succeeded)
             {
                 return RedirectToAction("List", "Movie");
-                //return Redirect(model.ReturnUrl??"~/");
             }
             ModelState.AddModelError("", "The entered email or password was entered incorrectly.");
             return View(model);

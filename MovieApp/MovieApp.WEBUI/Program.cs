@@ -67,7 +67,33 @@ app.UseAuthentication();
 app.UseRouting();
 app.UseAuthorization();
 
+//app.MapControllerRoute(
+//    name: "adminuseredit",
+//    pattern: "admin/user/{id?}",
+//    defaults: new { controller = "Admin", action = "EditUser" }
+//    );
 
+//app.MapControllerRoute(
+//    name: "adminusers",
+//    pattern: "admin/user/list",
+//    defaults: new { controller = "Admin", action = "UserList" }
+//    );
+
+//app.MapControllerRoute(
+//    name: "adminroles",
+//    pattern:"admin/role/list",
+//    defaults: new {controller="Admin", action="RoleList"}
+//    );
+//app.MapControllerRoute(
+//    name: "adminrolecreate",
+//    pattern: "admin/role/create",
+//    defaults: new { controller = "Admin", action = "CreateRole" }
+//    );
+//app.MapControllerRoute(
+//    name: "adminroleedit",
+//    pattern: "admin/role/{id?}",
+//    defaults: new { controller = "Admin", action = "EditRole" }
+//    );
 //app.MapControllerRoute(
 //    name: "adminmovies",
 //    pattern: "admin/movies",
@@ -123,4 +149,13 @@ app.MapControllerRoute(
     );
 
 app.MapDefaultControllerRoute();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<User>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    var configuration = services.GetRequiredService<IConfiguration>();
+
+    await SeedIdentity.Seed(userManager, roleManager, configuration);
+}
 app.Run();

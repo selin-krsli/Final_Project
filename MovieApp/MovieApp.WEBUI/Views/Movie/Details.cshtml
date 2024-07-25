@@ -15,8 +15,19 @@
                 <h4 class="text-primary mb-3">
                     <i class="fas fa-lira-sign"></i>@Model.Movie.Price
                 </h4>
-                <button type="submit" class="btn btn-primary btn-lg">Add To Card</button>
+            <form asp-controller="Cart" asp-action="AddToCart" method="post" class="form-inline">
+                <input type="hidden" name="movieId" value="@Model.Movie.MovieId" />
+                <div class="input-group mb-3">
+                    <input type="text" name="quantity" class="form-control" value="1" min="1" step="1" style="width:100px;"/>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-pirmary">
+                            <i class="fas fa-cart-plus"></i>Add To Cart
+                        </button>
+                    </div>
                 </div>
+
+            </form>
+            </div>
     </div>
 </div>
 <div class="row">

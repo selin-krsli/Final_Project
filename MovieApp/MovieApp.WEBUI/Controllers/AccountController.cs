@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MovieApp.BUSINESS.Abstract;
 using MovieApp.WEBUI.Identity;
 using MovieApp.WEBUI.Models;
 
@@ -9,10 +10,12 @@ namespace MovieApp.WEBUI.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        private readonly ICartService _cartService;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ICartService cartService)
         {
             _userManager = userManager;   
             _signInManager = signInManager;
+            _cartService = cartService;
         }
         public IActionResult Login()
         {
@@ -37,6 +40,7 @@ namespace MovieApp.WEBUI.Controllers
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
             if(result.Succeeded)
             {
+                _cartService.InitializeCart(user.Id);
                 return RedirectToAction("List", "Movie");
             }
             ModelState.AddModelError("", "The entered email or password was entered incorrectly.");

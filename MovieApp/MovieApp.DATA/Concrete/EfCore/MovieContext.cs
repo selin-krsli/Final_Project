@@ -16,6 +16,8 @@ namespace MovieApp.DATA.Concrete.EfCore
         }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
 
         //İki adet Key; tablonun birincil anahtarı.
         protected override void OnModelCreating(ModelBuilder modelBuilder)

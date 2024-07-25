@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace MovieApp.DATA.Abstract
 {
-    public interface IOrderRepository:IRepository<Order>
+    public interface ICartRepository:IRepository<Cart>
     {
+        Cart GetCartByUserId(string userId);
+        void DeleteFromCart(int cartId, int movieId);
     }
 }

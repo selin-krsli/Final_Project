@@ -98,7 +98,7 @@ namespace MovieApp.WEBUI.Controllers
         [HttpPost]
         public IActionResult EditMovie(MovieModel model, int[] categoryIds)
         {
-            //if(ModelState.IsValid)
+            //if (ModelState.IsValid)
             //{
                 var movieEntity = _movieService.GetById(model.MovieId);
                 if (movieEntity == null)
@@ -124,9 +124,9 @@ namespace MovieApp.WEBUI.Controllers
                 TempData["message"] = JsonConvert.SerializeObject(serializeObj);
                 return RedirectToAction("MovieList");
             //}
-            //ViewBag.Categories = _categoryService.GetAll();
+           // ViewBag.Categories = _categoryService.GetAll();
             //return View(model);
-        }
+            }
         [HttpPost]
         public IActionResult DeleteMovie(int movieId)
         {
@@ -160,19 +160,23 @@ namespace MovieApp.WEBUI.Controllers
         [HttpPost]
         public IActionResult CreateCategory(CategoryModel model)
         {
-            var categoryEntity = new Category
-            {
-                 Name = model.Name,
-                 Url = model.Url,
-            };
-            _categoryService.Create(categoryEntity);
-            var serializeObj = new MessageBoxInfo
-            {
-                Message = $"{categoryEntity.Name} is added!",
-                AlertType = "success"
-            };
-            TempData["message"] = JsonConvert.SerializeObject(serializeObj);
-            return RedirectToAction("CategoryList");
+            //if(ModelState.IsValid)
+            //{
+                var categoryEntity = new Category
+                {
+                    Name = model.Name,
+                    Url = model.Url,
+                };
+                _categoryService.Create(categoryEntity);
+                var serializeObj = new MessageBoxInfo
+                {
+                    Message = $"{categoryEntity.Name} is added!",
+                    AlertType = "success"
+                };
+                TempData["message"] = JsonConvert.SerializeObject(serializeObj);
+                return RedirectToAction("CategoryList");
+            //}
+            //return View(model);
         }
         public IActionResult EditCategory(int? id)
         {
@@ -200,25 +204,29 @@ namespace MovieApp.WEBUI.Controllers
         [HttpPost]
         public IActionResult EditCategory(CategoryModel model)
         {
-            var categoryEntity = _categoryService.GetById(model.CategoryId);
-            if (categoryEntity == null)
-            {
-                return NotFound();
-            }
-            categoryEntity.Name = model.Name;
-            categoryEntity.Url = model.Url;
+            //if(ModelState.IsValid)
+            //{
+                var categoryEntity = _categoryService.GetById(model.CategoryId);
+                if (categoryEntity == null)
+                {
+                    return NotFound();
+                }
+                categoryEntity.Name = model.Name;
+                categoryEntity.Url = model.Url;
 
-            _categoryService.Update(categoryEntity);
+                _categoryService.Update(categoryEntity);
 
-            var serializeObj = new MessageBoxInfo
-            {
-                Message = $"{categoryEntity.Name} is updated!",
-                AlertType = "warning"
-            };
+                var serializeObj = new MessageBoxInfo
+                {
+                    Message = $"{categoryEntity.Name} is updated!",
+                    AlertType = "warning"
+                };
 
-            TempData["message"] = JsonConvert.SerializeObject(serializeObj);
+                TempData["message"] = JsonConvert.SerializeObject(serializeObj);
 
-            return RedirectToAction("CategoryList");
+                return RedirectToAction("CategoryList");
+            //}
+            //return View(model);
         }
         [HttpPost]
         public IActionResult DeleteCategory(int categoryId)

@@ -34,7 +34,6 @@ namespace MovieApp.WEBUI.Models
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
         public int CategoryId { get; set; }
-       // public List<MovieCategory> MovieCategories { get; set; }
         public List<Category> SelectedCategories { get; set; } = new List<Category>();
     }
 }

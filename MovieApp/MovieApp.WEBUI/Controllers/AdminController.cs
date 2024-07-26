@@ -40,8 +40,8 @@ namespace MovieApp.WEBUI.Controllers
         [HttpPost]
         public IActionResult CreateMovie(MovieModel model)
         {
-            //if(ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 var movieEntity = new Movie
                 {
                     MovieName = model.MovieName,
@@ -62,8 +62,8 @@ namespace MovieApp.WEBUI.Controllers
 
                 TempData["message"] = JsonConvert.SerializeObject(serializeObj);
                 return RedirectToAction("MovieList");
-            //}
-            //return View(model);
+            }
+            return View(model);
         }
         public IActionResult EditMovie(int? id)
         {

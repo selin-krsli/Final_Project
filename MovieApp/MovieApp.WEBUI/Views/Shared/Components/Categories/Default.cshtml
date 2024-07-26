@@ -1,7 +1,7 @@
 ﻿@model List<Category>
 
 <div class="list-group">
-    <a href="/movies" class="list-group-item list-group-item-light list-group-item-action active">All Categories</a>
+    <a asp-controller="Movie" asp-action="List" class="list-group-item list-group-item-light list-group-item-action active">All Categories</a>
 
     @foreach (var categoryName in Model)
     {
